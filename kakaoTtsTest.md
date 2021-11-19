@@ -25,7 +25,7 @@ public class Tts {
             HttpURLConnection con = (HttpURLConnection)url.openConnection();
             con.setRequestMethod("POST");
             con.setRequestProperty("Content-Type", "application/xml");
-            con.setRequestProperty("Authorization", "KakaoAK 041842f6ecf67e20655c4bcec810faa8");
+            con.setRequestProperty("Authorization", "KakaoAK {API_KEY}");
             // post request
             String postParams = text;
             con.setDoOutput(true);
