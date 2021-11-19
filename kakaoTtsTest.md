@@ -1,4 +1,4 @@
-```
+```java
 package com.br;
 
 import java.io.BufferedReader;
@@ -74,4 +74,4 @@ public class Tts {
 
 }
 
-```java
+```
