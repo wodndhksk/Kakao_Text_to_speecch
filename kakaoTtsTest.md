@@ -18,7 +18,7 @@ public class Tts {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
         try {
-            //String text = URLEncoder.encode("<speak> 그는 그렇게 말했습니다. </speak>", "UTF-8"); // 13자
+            //String text = URLEncoder.encode("<speak> 형돈이가 랩을한다  홍 홍~ 지용이가 랩을한다 호옹 호옹 홍. </speak>", "UTF-8"); // 13자
             String text = "<speak> 그는 그렇게 말했습니다. </speak>";
             String apiURL = "https://kakaoi-newtone-openapi.kakao.com/v1/synthesize";
             URL url = new URL(apiURL);
