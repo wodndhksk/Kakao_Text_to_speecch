@@ -17,15 +17,17 @@ public class Tts {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-        try {
-        
-            String text = "<speak> 형돈이가 랩을한다  홍 홍~ 지용이가 랩을한다 호옹 호옹 홍. </speak>";
-            String apiURL = "https://kakaoi-newtone-openapi.kakao.com/v1/synthesize";
+        try {        
+	    Date currentDate = new Date();
+  	    SimpleDateFormat saveFileDate = new SimpleDateFormat("yyyyMMddhhmmssSSS");	
+	    
+            String text = "<speak> 형돈이가 랩을한다  홍 홍~ 지용이가 랩을한다 호옹 호옹 홍. </speak>"; 	//xml 형태
+            String apiURL = "https://kakaoi-newtone-openapi.kakao.com/v1/synthesize";		//api url
             URL url = new URL(apiURL);
             HttpURLConnection con = (HttpURLConnection)url.openConnection();
             con.setRequestMethod("POST");
-            con.setRequestProperty("Content-Type", "application/xml");
-            con.setRequestProperty("Authorization", "KakaoAK {API_KEY}");
+            con.setRequestProperty("Content-Type", "application/xml");		// kakao api 가이드 참고
+            con.setRequestProperty("Authorization", "KakaoAK {API_KEY}");	// KakaoAK뒤로 공백후 api key 값
             // post request
             String postParams = text;
             con.setDoOutput(true);
@@ -45,9 +47,9 @@ public class Tts {
                 InputStream is = con.getInputStream();
                 int read = 0;
                 byte[] bytes = new byte[1024];
-                // 랜덤한 이름으로 mp3 파일 생성
-                String tempname = Long.valueOf(new Date().getTime()).toString();
-                File f = new File("E:\\"+tempname + ".mp3");
+                // 현재 날짜 이름으로 mp3 파일 생성
+                String saveFileName = saveFileDate.format(currentDate);
+                File f = new File("E:\\"+saveFileName + ".mp3");
                 f.createNewFile();
                 OutputStream outputStream = new FileOutputStream(f);
                 while ((read =is.read(bytes)) != -1) {
