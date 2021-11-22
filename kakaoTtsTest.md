@@ -21,7 +21,7 @@ public class Tts {
 	    Date currentDate = new Date();
   	    SimpleDateFormat saveFileDate = new SimpleDateFormat("yyyyMMddhhmmssSSS");	
 	    
-            String text = "<speak> 형돈이가 랩을한다 호옹  홍 홍~ 지용이가 랩을한다 호옹 호옹 . </speak>"; 	//xml 형태
+            String text = "<speak> 형돈이가 랩을한다 호옹 홍 홍~ 지용이가 랩을한다 호옹 호옹 호우. </speak>"; 	//xml 형태
             String apiURL = "https://kakaoi-newtone-openapi.kakao.com/v1/synthesize";		//api url
             URL url = new URL(apiURL);
             HttpURLConnection con = (HttpURLConnection)url.openConnection();
