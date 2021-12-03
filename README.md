@@ -19,6 +19,7 @@
 4. 안내팝업이 재등장시 창이 여러개로 겹치지 않도록 현재 팝업창을 닫고 다시 띄우는 형태
 5. <audio>태그로 autoplay를 사용하여 팝업 등장시 자동으로 내용을 읽어줌.
 
+<hr>
   
 ### Json 내용
 ![41131313](https://user-images.githubusercontent.com/73927761/144533923-355f456f-30e0-4690-9aa9-ac362b323dba.png)
