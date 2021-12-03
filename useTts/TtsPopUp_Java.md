@@ -8,8 +8,7 @@
 	 */
 	@RequestMapping(value=MENU_ROOT_URL+"tts/date/jsonObject.do" ,  method = RequestMethod.GET)	
 	@ResponseBody
-	public Map<String, Object> videoJSONList(HttpServletRequest req, HttpServletResponse res /*, @RequestBody Map<String,String> fullDateTime*/) { //throws Exception{
-		
+	public Map<String, Object> videoJSONList(HttpServletRequest req, HttpServletResponse res /*, @RequestBody Map<String,String> fullDateTime*/) { //throws Exception{	
 	try {
 		Map<String, Object> addParam = new HashMap<>();
 		addParam.put("CONTENT_TYPE", CONTENT_TYPE);
