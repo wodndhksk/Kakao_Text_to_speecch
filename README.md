@@ -10,7 +10,8 @@
 
 
 ### 음성안내 팝업 사용의 예시 이미지
-![ddddddddddd](https://user-images.githubusercontent.com/73927761/144531475-2fac1629-66ed-4239-b404-dcf98824c04a.png)
+![121434134134](https://user-images.githubusercontent.com/73927761/144533734-88a66b0d-839a-431e-ba65-5c66e3ac9bee.png)
+
 
 1. Json으로 필요한 값을 받아서 팝업창에서 사용 
 2. 안내팝업을 종료해도 설정한 시간에 따라 다시 재등장
