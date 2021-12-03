@@ -17,7 +17,7 @@
   function popupWindow(description, customerService, audioPath){
 	// #popup1 를 display none => block 으로 바꾸기
 	   document.getElementById('popup1').style.display="block"; 
-	  $('#popup1').append(
+	$('#popup1').append(
 			'<div class="popup__header">'					
 			+'<h2><span>셔틀버스 운행상황</span></h2>'
 			+'</div>'
@@ -30,7 +30,7 @@
 			+'<div class="popup__close">'
 			+'<button type="button" class="close" onclick="closePopup()"></button>'
 			+'</div>'
-			+'<div class="audioMessage"><audio id="ttsPlayer" autoplay> <source src="/upload/20211202011954941.mp3"></audio></div>'
+			+'<div class="audioMessage"><audio id="ttsPlayer" autoplay> <source src="/'+ audioPath +'"></audio></div>'
 		
 	  );//append
   }
