@@ -1,25 +1,22 @@
 ```javascript
 
 <script>
-
-  //영어 페이지로 이동(한글->영어로)
   function engPage() {
 	  window.location.href = '/front/use_kiosk/shuttle/shuttle_eng.do';
   }
   
-  //popup창 닫기
   function closePopup() {
 	  document.getElementById('popup1').style.display="none";
 	  $('#popup1').html(" ");
   }
   
-  //popup창 InnerHTML 사용해서 띄우기 & 음성재생
-  function popupWindow(description, customerService, audioPath){
+  function popupWindow(description, customerService, audioPath, ttsTitle){
 	// #popup1 를 display none => block 으로 바꾸기
 	   document.getElementById('popup1').style.display="block"; 
-	$('#popup1').append(
+	  //popup창 InnerHTML 사용해서 띄우기 & 음성재생
+	  $('#popup1').append(
 			'<div class="popup__header">'					
-			+'<h2><span>셔틀버스 운행상황</span></h2>'
+			+'<h2><span>'+ ttsTitle +'</span></h2>'
 			+'</div>'
 			
 			+'<div class="popup__contents">'
@@ -35,12 +32,9 @@
 	  );//append
   }
   
-  // 전역변수에 담아서 안내 내용 변경 유뮤 확인용
   var temdesc= "";
-  // 전역변수로 popup창 일정시간 후 재등장 하도록 하기 위해 사용
   var countTime = 0;
   
-  //
   function getCurrentDateTime(){
 	  	  
 	  $.ajax({
@@ -49,25 +43,27 @@
 		  contentType: "application/json",
 	  		
 		  success : function(data) {		  	
-			  // console.log(data); //json object 확인용			  
+			  console.log(data); //json object 확인용			  
 			  var description = data.dateObject[0].description;
 			  var customerService = data.dateObject[0].customerService;
 			  var audioPath = data.dateObject[0].filePath;
+			  var ttsTitle = data.dateObject[0].ttsTitle;
 			  
 			  //.mp4 음성파일 경로 쪼갠후 필요한 부분만 결합
 			  var splitPath = audioPath.split('/');
 			  audioPath = splitPath[6] + "/" + splitPath[7];
 			  
 			  if(temdesc != description){
-				  popupWindow(description, customerService, audioPath);
+				  closePopup();
+				  popupWindow(description, customerService, audioPath, ttsTitle);
 				  
 			  } else{
 				 countTime += 1;
 				 //countTime이 10을 넘어가면 팝업창 다시 뜸
-				 if(countTime >10){
+				 if(countTime >20){
 					 closePopup();
 					 countTime = 0;
-					 popupWindow(description, customerService, audioPath);
+					 popupWindow(description, customerService, audioPath, ttsTitle);
 					 
 				 }
 			  }
@@ -82,7 +78,10 @@
   }
  
   // 1초마다 안내방송 유무 체크
+   closePopup();
    setInterval(getCurrentDateTime, 1000); 
+/*  getCurrentDateTime(); */
+  
 
   </script>
 ```
