@@ -80,7 +80,7 @@
   // 1초마다 안내방송 유무 체크
    closePopup();
    setInterval(getCurrentDateTime, 1000); 
-/*  getCurrentDateTime(); */
+
   
 
   </script>
